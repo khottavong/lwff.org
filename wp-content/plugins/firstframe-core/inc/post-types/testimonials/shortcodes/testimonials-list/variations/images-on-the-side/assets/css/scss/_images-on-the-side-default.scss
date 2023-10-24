@@ -1,0 +1,223 @@
+.qodef-testimonials-list {
+
+	&.qodef-item-layout--images-on-the-side {
+		display: flex;
+		position: relative;
+		justify-content: center;
+		align-items: center;
+
+		.swiper-pagination-bullets {
+			bottom: auto !important;
+		}
+
+		&.qodef-skin--dark {
+			.qodef-e-text,
+			.qodef-e-author {
+				color: $heading-dark-color;
+			}
+
+			~ .swiper-button-prev.swiper-button-outside {
+				svg {
+					g {
+						stroke: $heading-dark-color;
+					}
+
+				}
+			}
+
+			~ .swiper-button-next.swiper-button-outside {
+				svg {
+					g, path {
+						stroke: $heading-dark-color;
+					}
+
+				}
+			}
+
+
+			.swiper-pagination-bullet {
+				border-color: $heading-dark-color;
+
+				&.swiper-pagination-bullet-active {
+					background-color: $heading-dark-color;
+				}
+			}
+		}
+
+		@include qodefScreenSize768 {
+			flex-wrap: wrap;
+		}
+
+		.qodef-testimonials-images-on-the-side {
+			width: 450px;
+			flex-shrink: 0;
+			align-self: center;
+			font-size: 0;
+			line-height: 0;
+
+			@include qodefScreenSize1440 {
+				width: 420px;
+			}
+
+			@include qodefScreenSize768 {
+				width: 100%;
+				margin-bottom: 25px;
+			}
+
+			.qodef-testimonials-images-holder {
+				position: relative;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				max-width: 236px;
+
+				@include qodefScreenSize768 {
+					margin-left: -5px;
+					padding-bottom: 64px;
+				}
+
+				.qodef-e-media-image {
+					width: calc(50% - 10px);
+					margin: 5px;
+					position: relative;
+					cursor: pointer;
+					clip-path: circle(75%);
+					transition: clip-path 1s;
+
+					&.qodef-current-image {
+						clip-path: circle(50%);
+					}
+				}
+			}
+		}
+
+		.qodef-custom-testimonials-swiper-wrapper {
+			width: 100%;
+
+			.qodef-e-inner {
+				width: 100%;
+				max-width: 860px;
+				padding: 14px 0 0 0;
+
+				@include qodefScreenSize1440 {
+					padding: 14px 8% 0 0;
+				}
+				@include qodefScreenSize680 {
+					width: 100%;
+				}
+			}
+
+			.qodef-separator .qodef-m-line {
+				margin-bottom: 18px;
+			}
+
+			.qodef-e-text {
+				margin-bottom: 19px;
+			}
+
+			.qodef-e-author {
+				font-family: $info-style-font;
+				font-size: 15px;
+				font-weight: 300;
+				color: $text-color;
+				text-transform: none;
+			}
+
+			.qodef-e-author-job {
+				margin-left: 10px;
+				position: relative;
+
+				&:before {
+					content: '/';
+					position: absolute;
+					left: -15px;
+				}
+			}
+		}
+
+		&.qodef-col-num--1 {
+			.swiper-slide {
+				.qodef-e-subtitle,
+				.qodef-e-title,
+				.qodef-separator,
+				.qodef-e-text,
+				.qodef-e-author-job,
+				.qodef-e-author-name {
+					opacity: 0;
+					transform: translateY(30px);
+					transition: .3s ease-in-out;
+				}
+
+				&.swiper-slide-prev {
+					.qodef-e-subtitle,
+					.qodef-e-title,
+					.qodef-separator,
+					.qodef-e-text,
+					.qodef-e-author-job,
+					.qodef-e-author-name {
+						transform: translateY(-30px);
+						transition-delay: 0s !important;
+					}
+				}
+
+				&.swiper-slide-next {
+					.qodef-e-subtitle,
+					.qodef-e-title,
+					.qodef-separator,
+					.qodef-e-text,
+					.qodef-e-author-job,
+					.qodef-e-author-name {
+						transform: translateY(30px);
+						transition-delay: 0s !important;
+					}
+				}
+
+
+				&.swiper-slide-active,
+				&.swiper-slide-duplicate-active {
+					.qodef-e-subtitle,
+					.qodef-e-title,
+					.qodef-separator {
+						opacity: 1;
+						transform: translateX(0px);
+						transition: opacity .3s ease-in-out, transform .5s .25s ease-in-out;
+					}
+
+					.qodef-e-text {
+						opacity: 1;
+						transform: translateX(0px);
+						transition: opacity .3s ease-in-out, transform .5s .35s ease-in-out;
+					}
+
+					.qodef-e-author-job,
+					.qodef-e-author-name {
+						opacity: 1;
+						transform: translateX(0px);
+						transition: opacity .3s ease-in-out, transform .5s .45s ease-in-out;
+					}
+				}
+			}
+		}
+
+		.qodef-testimonials-quote {
+			display: flex;
+			align-items: center;
+			position: absolute;
+			height: 100%;
+			top: 5px;
+			right: -68%;
+			overflow: hidden;
+
+			@include qodefScreenSize1440 {
+				right: -55%;
+			}
+			@include qodefScreenSize768 {
+				left: 0;
+				bottom: -64%;
+				top: auto;
+
+			}
+		}
+	}
+}

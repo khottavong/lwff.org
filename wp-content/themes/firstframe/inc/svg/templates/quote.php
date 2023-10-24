@@ -1,0 +1,1 @@
+<svg class="<?php echo esc_attr( $class ); ?>" xmlns="http://www.w3.org/2000/svg" width="75" height="166" viewBox="0 0 75 166"><text data-name="''" transform="translate(1 134)" fill="none" stroke="#ebeae9" font-size="123" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">&apos;&apos;</tspan></text></svg>

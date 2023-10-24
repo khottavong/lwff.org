@@ -1,0 +1,97 @@
+.qodef-team-list {
+
+	&.qodef-item-layout--image-rounded {
+
+		.qodef-e-inner {
+			background-color: $heading-dark-color;
+			text-align: center;
+			padding: 47px 0;
+		}
+
+		.qodef-e-image {
+			position: relative;
+			max-width: 230px;
+			border-radius: 100%;
+			overflow: hidden;
+			max-height: 230px;
+			margin: auto;
+
+			@include qodefScreenSize1440 {
+				max-width: 195px;
+			}
+			@include qodefScreenSize1024 {
+				max-width: 95px;
+			}
+
+			.qodef-e-social-wrapper {
+				position: absolute;
+				top: 34px;
+				right: 20px;
+
+				.qodef-team-member-social-icons {
+					width: 38px;
+					max-height: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					transition: all 1.05s ease-in-out;
+					overflow: hidden;
+					flex-wrap: wrap;
+
+					> a {
+						height: 38px;
+						width: 22px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						font-family: $text-font;
+						color: $text-color;
+						font-size: 14px;
+						text-transform: uppercase;
+						font-weight: 500;
+						position: relative;
+
+						&:after {
+							content: '';
+							height: 1px;
+							background-color: currentColor;
+							width: 0;
+							position: absolute;
+							bottom: 8px;
+							left: 0;
+							transition: width 0.3s ease-in-out;
+						}
+
+						&:hover {
+							color: #fff;
+
+							&:after {
+								width: 100%;
+							}
+						}
+					}
+				}
+
+			}
+
+			&:hover {
+
+				.qodef-team-member-social-icons {
+					max-height: 380px;
+				}
+			}
+		}
+
+		.qodef-e-content {
+			margin: 34px 0 0;
+
+			.qodef-e-title {
+				margin: 22px 0 0;
+			}
+
+			.qodef-e-role {
+				margin: 5px 0 0;
+			}
+		}
+	}
+}

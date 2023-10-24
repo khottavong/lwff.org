@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Custom Font shortcode styles
+   ========================================================================== */
+
+.widget {
+
+	&.widget_firstframe_core_custom_font {
+		margin-bottom: 0 !important;
+	}
+}
+
+.qodef-custom-font {
+	position: relative;
+	margin: 0;
+
+	&.qodef-enable-outlined-text--yes {
+		font-size: 130px;
+		color: $border-color;
+		font-weight: 700;
+		line-height: 1.2em;
+		@include qodefOutlineStyle();
+	}
+}

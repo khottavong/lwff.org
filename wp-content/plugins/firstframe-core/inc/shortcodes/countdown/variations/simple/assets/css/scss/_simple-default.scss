@@ -1,0 +1,58 @@
+.qodef-countdown.qodef-layout--simple {
+
+	&.qodef-enable-border--yes {
+
+		.qodef-digit-wrapper {
+			border-right: 1px solid $border-color;
+
+			&:last-child {
+				border: none;
+			}
+
+			@include qodefScreenSize768 {
+				&:nth-child(3) {
+					border-right: 0 !important;
+				}
+
+				&:nth-child(4),
+				&:nth-child(5) {
+					margin-top: 30px !important;
+				}
+			}
+		}
+	}
+
+	.qodef-digit-wrapper {
+		display: inline-block;
+		vertical-align: top;
+		padding: 0 20px;
+	}
+
+	.qodef-digit {
+		font-family: inherit;
+		font-size: 75px;
+		line-height: 1em;
+		font-weight: 700;
+		color: $heading-color;
+
+		@include qodefScreenSize1024 {
+			font-size: 72px !important;
+		}
+		@include qodefScreenSize768 {
+			font-size: 65px !important;
+		}
+	}
+
+	.qodef-label {
+		font-family: $text-font;
+		font-size: 19px;
+		font-weight: 700;
+		color: $heading-color;
+		margin-top: 16px;
+		text-transform: uppercase;
+
+		@include qodefScreenSize680 {
+			font-size: 15px !important;
+		}
+	}
+}

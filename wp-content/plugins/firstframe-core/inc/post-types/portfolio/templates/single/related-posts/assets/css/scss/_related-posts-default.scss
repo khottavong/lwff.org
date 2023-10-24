@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Related Portfolio Single Items styles
+   ========================================================================== */
+
+#qodef-portfolio-single-related-items {
+	@include qodefRelativeLayout();
+	margin-top: 130px;
+
+	.qodef-related-portfolio-title {
+		margin-bottom: 36px;
+	}
+
+	.qodef-portfolio-list {
+
+		.qodef-grid-inner {
+			column-gap: 25px !important;
+		}
+
+		&.qodef-item-layout--info-on-image {
+
+			.qodef-play-button {
+
+				svg {
+					width: 100px;
+
+					@include qodefScreenSize680 {
+						width: 90px;
+					}
+				}
+			}
+		}
+	}
+}

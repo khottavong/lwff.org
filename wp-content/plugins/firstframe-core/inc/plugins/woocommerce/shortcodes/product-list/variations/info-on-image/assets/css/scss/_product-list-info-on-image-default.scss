@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Product List Info on Image styles
+   ========================================================================== */
+
+.qodef-woo-product-list {
+	
+	&.qodef-item-layout--info-on-image {
+
+		li {
+
+			.qodef-e-media {
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
+}

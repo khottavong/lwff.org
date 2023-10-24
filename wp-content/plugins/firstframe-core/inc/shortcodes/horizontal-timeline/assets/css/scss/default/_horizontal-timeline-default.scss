@@ -1,0 +1,433 @@
+/* ==========================================================================
+   Horizontal Timeline shortcode style - begin
+   ========================================================================== */
+
+.qodef-horizontal-timeline {
+	@include qodefRelativeLayout();
+	opacity: 0;
+	transition: opacity 0.2s;
+
+	&:before {
+		// never visible - this is used in jQuery to check the current MQ
+		content: 'desktop';
+		display: none;
+
+		@include qodefScreenSize1024 {
+			content: 'mobile';
+		}
+	}
+
+	&.qodef-loaded {
+		opacity: 1;
+	}
+
+	*,
+	*:before,
+	*:after {
+		box-sizing: border-box;
+	}
+
+	ol, ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	.qodef-ht-nav {
+		@include qodefRelativeLayout();
+
+	}
+
+	.qodef-ht-nav-wrapper {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: 100%;
+		height: 90px;
+		margin: 0;
+		overflow: hidden;
+		cursor: grab;
+
+	}
+
+	.qodef-ht-nav-inner {
+		position: absolute;
+		top: 20px;
+		left: -15%;
+		height: 1px;
+		background-color: $border-color;
+		transition: transform .4s;
+
+		a {
+			position: absolute;
+			top: 0;
+			text-align: center;
+			padding: 41px 0 0;
+			z-index: 2;
+			color: $border-color;
+			font-family: $text-font;
+			font-size: 19px;
+			font-weight: 700;
+
+			&.qodef-selected {
+				pointer-events: none;
+				color: #fff;
+
+				&:after {
+					background-color: var(--qode-main-color);
+					border: 1px solid var(--qode-main-color);
+				}
+			}
+
+			&.qodef-older-event {
+
+				&:after {
+					background-color: var(--qode-main-color);
+				}
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: -9px;
+				left: calc(50% - 9px);
+				right: auto;
+				width: 20px;
+				height: 20px;
+				border-radius: 100%;
+				background-color: $heading-dark-color;
+				border: 1px solid $border-color;
+				box-sizing: border-box;
+				transition: background-color 0.3s;
+				outline: 30px solid $heading-dark-color;
+			}
+		}
+	}
+
+	.qodef-ht-nav-filling-line {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: #fff;
+		z-index: 1;
+		transition: transform .3s;
+		transform-origin: left center;
+		transform: scaleX(0);
+	}
+
+	.qodef-ht-nav-navigation {
+
+		a {
+			position: absolute;
+			top: -20px;
+			line-height: 1;
+			box-sizing: border-box;
+			z-index: 2;
+
+			.qodef-m-nav-icon {
+				display: block;
+				width: 41px;
+				height: 82px;
+				text-align: center;
+
+			}
+
+			svg {
+				width: 41px;
+				height: 82px;
+
+				line,
+				polyline {
+					transition: .5s ease-in-out;
+					stroke-dasharray: 20;
+					stroke-dashoffset: 0;
+				}
+
+				path {
+					stroke: $border-color;
+				}
+
+			}
+
+			&.qodef-prev {
+				left: 0;
+				opacity: 1;
+			}
+
+			&.qodef-next {
+				right: 0;
+				opacity: 1;
+			}
+
+			&.qodef-inactive {
+				cursor: not-allowed;
+			}
+
+		}
+	}
+
+	.qodef-ht-content {
+		@include qodefRelativeLayout();
+		margin-top: 90px;
+		overflow: hidden;
+		transition: height 0.4s;
+		cursor: grab;
+		user-select: none;
+
+		@include qodefScreenSize1024 {
+			margin-top: 50px;
+		}
+
+		.qodef-m-content-inner {
+			margin: 0 -14px;
+			display: flex;
+
+			@include qodefScreenSize1024 {
+				display: block;
+				margin: 0;
+			}
+
+			.qodef-m-content {
+				padding-left: 74px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+
+				.qodef-hti-content-image-second {
+					margin-top: 56px;
+				}
+
+				.qodef-m-title {
+					@include qodefScreenSize680 {
+						font-size: 40px;
+					}
+				}
+
+				@include qodefScreenSize1440 {
+					padding-left: 5%;
+					padding-right: 3%;
+				}
+				@include qodefScreenSize1024 {
+					padding-left: 0;
+				}
+			}
+
+			&.qodef-hr-timeline-has-image {
+
+				.qodef-m-content {
+					width: 46%;
+
+					@include qodefScreenSize1280 {
+						width: 100%;
+					}
+				}
+
+				.qodef-hti-content-image {
+					margin: auto;
+					text-align: center;
+					width: 54%;
+
+					@include qodefScreenSize1024 {
+						text-align: center;
+						margin-bottom: 66px;
+						width: 85%;
+					}
+					@include qodefScreenSize768 {
+						width: 100%;
+					}
+
+					@include qodefScreenSize680 {
+						margin-bottom: 35px;
+
+						img {
+							width: 100%;
+						}
+					}
+				}
+
+				img {
+					user-select: none;
+					pointer-events: none;
+				}
+
+				> * {
+					width: 50%;
+					float: left;
+
+					@include qodefScreenSize1024 {
+						width: 100%;
+						float: none;
+					}
+				}
+			}
+
+			> * {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				width: 100%;
+				padding: 0 14px;
+				box-sizing: border-box;
+
+				@include qodefScreenSize1024 {
+					padding: 0;
+				}
+			}
+		}
+
+		li {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			animation-duration: 0.8s;
+			animation-timing-function: ease-in-out;
+			opacity: 0;
+			z-index: 1;
+			transform: translateX(-100%);
+
+			.qodef-m-title,
+			.qodef-m-text,
+			.qodef-hti-content-image-second {
+				@include qodefTranslateWithOpacity();
+			}
+
+			.qodef-hti-content-image {
+				opacity: 0;
+				transition: opacity .7s ease-out;
+			}
+
+			&.qodef-selected {
+				position: relative;
+				opacity: 1;
+				z-index: 2;
+				transform: translateX(0);
+
+				.qodef-hti-content-image {
+					opacity: 1;
+				}
+
+				.qodef-m-title,
+				.qodef-m-text,
+				.qodef-hti-content-image-second {
+					@include qodefTranslateWithOpacityHover();
+				}
+
+				.qodef-m-title {
+					transition-delay: .3s;
+				}
+
+				.qodef-m-text {
+					transition-delay: .6s;
+				}
+
+				.qodef-hti-content-image-second {
+					transition-delay: .9s;
+				}
+			}
+
+			&.qodef-enter-left,
+			&.qodef-leave-left {
+				animation-name: qodef-enter-left;
+			}
+
+			&.qodef-enter-right,
+			&.qodef-leave-right {
+				animation-name: qodef-enter-right;
+			}
+
+			&.qodef-leave-left,
+			&.qodef-leave-right {
+				animation-direction: reverse;
+			}
+
+			.qodef-m-title {
+				margin: 8px 0 15px;
+
+				@include qodefScreenSize1024 {
+					margin-top: 9px;
+				}
+			}
+
+			.qodef-m-subtitle {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.qodef-ib-item-btn-holder {
+		margin-top: 32px;
+	}
+}
+
+@-webkit-keyframes qodef-enter-right {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(100%);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translateX(0%);
+	}
+}
+
+@-moz-keyframes qodef-enter-right {
+	0% {
+		opacity: 0;
+		-moz-transform: translateX(100%);
+	}
+	100% {
+		opacity: 1;
+		-moz-transform: translateX(0%);
+	}
+}
+
+@keyframes qodef-enter-right {
+	0% {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@-webkit-keyframes qodef-enter-left {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(-100%);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translateX(0%);
+	}
+}
+
+@-moz-keyframes qodef-enter-left {
+	0% {
+		opacity: 0;
+		-moz-transform: translateX(-100%);
+	}
+	100% {
+		opacity: 1;
+		-moz-transform: translateX(0%);
+	}
+}
+
+@keyframes qodef-enter-left {
+	0% {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+
+/* ==========================================================================
+   Horizontal Timeline shortcode style - end
+   ========================================================================== */

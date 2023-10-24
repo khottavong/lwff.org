@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Button widget styles
+   ========================================================================== */
+
+.widget_firstframe_core_svg_icon {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 !important;
+
+	.qodef-m-holder {
+		display: flex;
+		align-items: center;
+	}
+
+	.qodef-svg-icon-widget {
+
+		svg {
+			display: block;
+			fill: var(--fill-color);
+			stroke: var(--stroke-color);
+			max-width: 100%;
+			max-height: 100%;
+			transition: all .25s ease-out;
+		}
+
+		a {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+		}
+
+		&:hover,
+		a:hover {
+			svg {
+				fill: var(--fill-hover-color);
+				stroke: var(--stroke-hover-color);
+			}
+
+			.qodef-m-text {
+				color: var(--text-hover-color);
+			}
+		}
+
+		&:hover {
+			.qodef-m-icon {
+				background-color: var(--background-hover-color);
+			}
+		}
+	}
+
+	.qodef-m-icon {
+		--fill-color: currentColor;
+		--stroke-color: currentColor;
+		--fill-hover-color: currentColor;
+		--stroke-hover-color: currentColor;
+		--background-color: transparent;
+		--background-hover-color: transparent;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		max-height: 100%;
+		background-color: var(--background-color);
+		overflow: hidden;
+		transition: all .25s ease-out;
+	}
+
+	.qodef-m-text {
+		--text-color: currentColor;
+		--text-hover-color: currentColor;
+		color: var(--text-color);
+		transition: all .25s ease-out;
+		line-height: 1;
+
+		#qodef-page-header & {
+			font-size: 17px;
+			font-weight: 700;
+			line-height: 20px;
+			position: relative;
+			@include qodefInlineUnderline();
+
+			&:hover {
+				@include qodefInlineUnderlineHover();
+			}
+		}
+	}
+}

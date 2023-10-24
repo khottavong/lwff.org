@@ -1,0 +1,16 @@
+.qodef-button {
+
+    &.qodef-layout--textual {
+        padding: 0 0.6em !important;
+        color: $heading-color;
+        @include qodefTextOverlay();
+
+        .qodef-m-text {
+            display: inline-block;
+        }
+
+        &:hover {
+            @include qodefTextOverlayHover();
+        }
+    }
+}

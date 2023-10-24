@@ -1,0 +1,256 @@
+/* ==========================================================================
+   Image Gallery shortcode styles
+   ========================================================================== */
+
+.qodef-image-gallery {
+
+	.qodef-play-button {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 5;
+		font-size: 14px;
+		letter-spacing: 1.5px;
+		font-weight: 500;
+		color: $heading-color;
+		fill: $heading-color;
+		width: auto !important;
+		height: auto !important;
+
+		.qodef-circle-svg {
+
+			@include qodefScreenSize680 {
+				width: 90px;
+			}
+		}
+
+		.qodef-play-fill {
+			clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+			transition: clip-path .35s ease-out;
+		}
+
+		@include qodefRotatedText();
+	}
+
+	.qodef-e {
+
+		&:hover {
+
+			.qodef-play-button {
+				@include qodefRotatedTextHover();
+
+				.qodef-play-fill {
+					clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+				}
+			}
+		}
+	}
+
+	&.qodef--borders-between {
+
+		&.qodef-layout--columns {
+
+			.qodef-e {
+				outline: 1px solid $border-color;
+				outline-offset: calc(var(--qode-columns-col-gap) / 2);
+			}
+		}
+	}
+
+	&.qodef--hover-zoom {
+
+		.qodef-e {
+			overflow: hidden;
+
+			img {
+				@include qodefImgZoom();
+			}
+
+			&:hover {
+				img {
+					@include qodefImgZoomHover();
+				}
+			}
+		}
+	}
+
+	&.qodef--hover-overlay {
+		.qodef-e {
+			overflow: hidden;
+		}
+
+		.qodef-e-image {
+			overflow: hidden;
+
+			&:after {
+				content: '';
+				@include qodefOverlayGradient();
+			}
+
+			&:hover {
+				&:after {
+					@include qodefOverlayGradientHover();
+				}
+			}
+		}
+	}
+}
+
+.qodef-image-slider-holder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&.qodef-skew-slider-holder {
+		height: 100vh;
+
+		.qodef-image-gallery {
+
+			&.swiper-container-initialized {
+				transform-origin: center center;
+				transform: rotate(2deg) translateZ(0);
+				padding-top: 100px;
+
+				.swiper-wrapper {
+
+					.swiper-slide {
+						overflow: hidden;
+						@include qodefScreenSize680 {
+							padding: 0 30px;
+						}
+
+						.qodef-popup-item {
+							width: 100%;
+							height: 100%;
+							display: block;
+							position: relative;
+						}
+					}
+				}
+
+				.swiper-pagination-bullets {
+					transform: rotate(-2deg);
+				}
+			}
+		}
+	}
+
+	&.qodef-background-text {
+		position: relative;
+		overflow: hidden;
+
+		.qodef-bg-text {
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding-top: 40px;
+		}
+
+		.qodef-text-marquee {
+
+			.qodef-m-content {
+				line-height: initial !important;
+				font-size: initial !important;
+				padding-bottom: 63px;
+
+				@include qodefScreenSize680 {
+					line-height: 1 !important;
+				}
+			}
+
+			.qodef-m-text-1,
+			.qodef-m-text-2,
+			.qodef-m-text-3 {
+				font-family: $text-font;
+				font-size: 150px;
+				line-height: .04em;
+				font-weight: 700;
+				text-transform: uppercase;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: $border-color;
+				text-stroke: 1px $border-color;
+				-webkit-text-stroke: 1px $border-color;
+				color: transparent;
+				-webkit-text-fill-color: transparent;
+
+				@include qodefScreenSize680 {
+					line-height: 1;
+				}
+			}
+
+			.qodef-m-separator {
+				position: relative;
+				margin: 0 50px;
+				font-size: calc(100vh / 6.2);
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: $border-color;
+				text-stroke: 1px $border-color;
+				-webkit-text-stroke: 1px $border-color;
+				color: transparent;
+				-webkit-text-fill-color: transparent;
+			}
+
+
+		}
+	}
+
+	&.qodef-scaled-centered-slide {
+		.qodef-e-image {
+			display: block;
+		}
+
+		.swiper-wrapper {
+			align-items: center;
+		}
+
+		.qodef-image-gallery {
+			padding: 100px 0;
+		}
+
+		.swiper-slide {
+			margin: 0;
+			transition: margin .44s ease;
+			overflow: visible;
+
+			.qodef-e-image {
+				transform: scale(.933) translateX(-23%);
+				transition: transform .44s ease;
+				border: 1px solid #3b3a3a;
+
+				@include qodefScreenSize680 {
+					transform: none;
+				}
+
+				&:after {
+					transform: translateZ(0px);
+				}
+			}
+		}
+
+		.swiper-slide-active {
+			margin: 0 5.8%;
+			z-index: 5;
+
+			@include qodefScreenSize680 {
+				margin: 0;
+			}
+
+			.qodef-e-image {
+				transform: scale(1.4) translateX(-15.35%);
+				transition: transform .44s ease;
+
+				@include qodefScreenSize680 {
+					transform: none;
+				}
+			}
+		}
+
+		.swiper-container-horizontal > .swiper-pagination-bullets,
+		.swiper-horizontal > .swiper-pagination-bullets {
+			bottom: -80px !important;
+		}
+	}
+}

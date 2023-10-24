@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Portfolio Single styles
+   ========================================================================== */
+.qodef-layout--light-skin {
+
+	#qodef-page-outer {
+		background-color: #fff;
+		color: $heading-dark-color;
+	}
+
+	.qodef-portfolio-single {
+		a, p, h1, h2, h3, h4, h5, h6,
+		.qodef-portfolio-title {
+			color: $heading-dark-color !important;
+		}
+
+	}
+
+	.qodef-portfolio-related-title {
+		color: $heading-dark-color;
+	}
+
+	#qodef-single-portfolio-navigation {
+
+		.qodef-m-nav.qodef--back-link,
+		.qodef-m-nav.qodef--prev,
+		.qodef-m-nav.qodef--next {
+			svg {
+				g {
+					stroke: $heading-dark-color !important;
+				}
+			}
+		}
+	}
+
+	.qodef-e-info {
+
+		> * {
+			color: $heading-dark-color;
+		}
+	}
+}
+
+.qodef-portfolio-single {
+	@include qodefRelativeLayout();
+
+	.qodef-media {
+
+		iframe {
+			max-height: calc(56.25vw);
+		}
+	}
+
+	.qodef-portfolio-title {
+		margin: 0 0 15px;
+	}
+
+	.qodef-portfolio-info {
+
+		> * {
+			display: flex;
+			align-items: flex-start;
+			margin-bottom: 26px;
+			flex-direction: column;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.qodef-info--info-items {
+
+			.qodef-e-info-item {
+				font-family: $info-style-font;
+				font-size: 15px;
+			}
+		}
+
+		.qodef-info--category {
+
+			.qodef-e-category {
+				a {
+					font-family: $info-style-font;
+					color: $text-color;
+					font-weight: 200;
+
+					&:hover {
+						color: #fff;
+					}
+				}
+			}
+		}
+
+		.qodef-e-label {
+			margin: 0 0 10px 0;
+		}
+
+		p, a {
+			margin: 0;
+			font-family: $info-style-font;
+			color: $text-color;
+			font-weight: 200;
+		}
+	}
+
+	.qodef-variations--small {
+
+		.qodef-media {
+			margin-right: 45px;
+		}
+
+		.qodef-portfolio-info {
+			margin-top: 58px;
+		}
+	}
+
+	.qodef-variations--big {
+		.qodef-media {
+			img {
+				width: 100%;
+			}
+		}
+
+		.qodef-e-content {
+			margin-top: 55px;
+
+			.qodef-grid-inner {
+				display: flex;
+				flex-direction: column;
+				text-align: center;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+
+		.qodef-portfolio-info {
+			padding-top: 65px;
+			margin-top: 55px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			border-top: 1px solid $border-color;
+
+			@include qodefScreenSize680 {
+				flex-direction: column;
+			}
+
+			> * {
+				text-align: left;
+
+
+				@include qodefScreenSize680 {
+					align-items: center;
+					text-align: center;
+				}
+			}
+
+		}
+	}
+}

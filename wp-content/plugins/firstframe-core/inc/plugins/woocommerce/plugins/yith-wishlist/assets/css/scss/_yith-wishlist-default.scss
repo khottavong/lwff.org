@@ -1,0 +1,120 @@
+@import '../../../../../../../../../../themes/firstframe/inc/woocommerce/assets/css/scss/woo-mixins';
+
+.yith-wcwl-form {
+
+    .wishlist-title-container {
+        display: none !important;
+    }
+
+    .shop_table {
+        @include qodefWooTableStyle();
+        font-size: 100%;
+    }
+
+    .wishlist_table {
+
+        // overrides
+        &.shop_table {
+
+            tr {
+
+                th {
+                    background: transparent !important;
+
+                    &.product-remove {
+                        width: auto !important;
+                    }
+                }
+
+                td {
+                    background: transparent !important;
+                    color: $text-color !important;
+                    border-color: transparent !important;
+                }
+            }
+        }
+
+        .product-add-to-cart {
+
+            .button,
+            .added_to_cart {
+                @include qodefWooButtonsStyle($important: !important);
+
+                i {
+                    display: none !important;
+                }
+
+                &:before {
+                    display: none !important;
+                }
+
+                &.added {
+                    display: none !important;
+                }
+            }
+        }
+    }
+}
+
+.qodef-yith-wcwl--predefined {
+
+    .yith-wcwl-add-to-wishlist {
+        font-size: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1 !important;
+        background-color: transparent !important;
+
+        a {
+
+            &:before {
+                font-size: 22px;
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 400;
+                content: "\f004";
+            }
+        }
+
+        &.exists {
+
+            a {
+                &:before {
+                    font-size: 22px;
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 900;
+                    content: "\f004";
+                }
+            }
+        }
+
+        .feedback,
+        .blockOverlay,
+        .view-wishlist,
+        span,
+        i {
+            display: none !important;
+        }
+    }
+
+    .qodef-e-media-inner {
+
+        .yith-wcwl-add-to-wishlist {
+
+            a {
+                color: #fff !important;
+
+                &:hover {
+                    color: var(--qode-main-color) !important;
+                }
+            }
+        }
+    }
+
+    #yith-wcwl-popup-message {
+        display: none !important;
+    }
+
+    .yith-wcwl-share {
+        display: none !important;
+    }
+}

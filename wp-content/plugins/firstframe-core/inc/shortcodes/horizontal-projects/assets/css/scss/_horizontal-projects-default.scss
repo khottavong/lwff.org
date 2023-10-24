@@ -1,0 +1,289 @@
+/* ==========================================================================
+   Horizontal Layout shortcode style - begin
+   ========================================================================== */
+
+$item-w: 372px;
+$offset: 75px;
+
+.qodef-horizontal-projects {
+
+	.qodef-hl-items-wrapper {
+		position: fixed;
+		top: 0;
+		height: 100vh;
+		right: 0;
+		width: 100vw;
+
+		@media screen and (min-width: 1025px) {
+
+			.qodef-header--vertical-sliding & {
+				left: $offset;
+				width: calc(100vw - #{$offset});
+			}
+		}
+	}
+
+	.qodef-hl-item {
+		position: absolute;
+		top: 0;
+		height: 100%;
+		min-width: $item-w;
+		width: $item-w;
+		transform-origin: 100% 50%;
+		background-color: $heading-dark-color;
+		border-right: 1px solid #707070;
+
+		&:first-child {
+			width: 50vw;
+		}
+	}
+
+	.qodef-hli-grid {
+		position: absolute;
+		right: 15px;
+		width: calc(100% - 30px);
+		height: calc(100% - 15px);
+		display: flex;
+		flex-direction: column;
+	}
+
+	.qodef-hli-top {
+		overflow: hidden;
+		position: relative;
+		top: 25px;
+
+		@include qodefScreenSize1024 {
+			transform: translateY(70px);
+		}
+	}
+
+	.qodef-hli-label-first {
+		position: relative;
+		font-size: 94px;
+		font-weight: 700;
+		line-height: 1;
+		font-family: $text-font;
+		color: #393939;
+
+		@include qodefScreenSize1024 {
+			font-size: 80px;
+		}
+	}
+
+	.qodef-hli-label-second {
+		font-size: 15px;
+		font-weight: 300;
+		line-height: 1;
+		font-family: $info-style-font;
+		color: $text-color;
+		opacity: 0;
+
+		white-space: nowrap;
+		transition: opacity 0.15s ease-in-out;
+		position: absolute;
+		bottom: 27px;
+		left: 108%;
+
+		&:before {
+			content: '/';
+			color: currentColor;
+			position: absolute;
+			left: -14px;
+			bottom: 1px;
+		}
+	}
+
+
+	.qodef-hli-pattern {
+		@include qodefAbsoluteLayout();
+	}
+
+	.qodef-hli-mid {
+		width: 350px;
+		margin-top: 35vh;
+		margin-bottom: 24px;
+
+		@include qodefScreenSize1024 {
+			margin-top: 22vh;
+		}
+		@include qodefScreenSize680 {
+			margin-top: 22vh;
+		}
+	}
+
+	.qodef-hli-title {
+		position: relative;
+		top: -10px;
+		margin: 0 0 10px;
+
+		a {
+			&:hover,
+			&:focus,
+			&:visited {
+				color: currentColor;
+			}
+		}
+	}
+
+	.qodef-hli-category {
+		font-family: $info-style-font;
+		font-size: 15px;
+		line-height: 1.13px;
+		margin-bottom: 18px;
+		position: relative;
+		top: -10px;
+
+		a {
+			color: $text-color;
+
+			&:hover {
+				color: #ebeae9;
+			}
+		}
+	}
+
+	.qodef-hli-btm {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.qodef-hli-btm-inner {
+		@include qodefAbsoluteLayout();
+
+		.qodef-hl-item:not(:first-child) & {
+			height: 50%;
+		}
+	}
+
+	.qodef-hli-btm-item {
+		@include qodefAbsoluteLayout();
+	}
+
+	.qodef-hli-image {
+		overflow: hidden;
+
+		img {
+			height: 100% !important;
+			width: 100%;
+			object-fit: cover;
+
+			@media all and (-ms-high-contrast: none),
+			(-ms-high-contrast: active) {
+				width: auto;
+			}
+		}
+	}
+
+	.qodef-hl-cta {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 100vw;
+		padding: 131px 7% 110px 67px;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		background-color: $heading-dark-color;
+
+		@media (min-width: 1280px) and (max-width: 1440px) {
+			padding: 80px 40px;
+		}
+		@media screen and (min-width: 1025px) {
+			width: 31vw;
+
+			.qodef-header-vertical-sliding & {
+				width: calc(31vw - #{$offset});
+			}
+		}
+
+		@include qodefScreenSize1024 {
+			padding: 131px 51% 110px 67px;
+		}
+		@include qodefScreenSize680 {
+			padding: 27px;
+		}
+
+		.qodef-hl-cta-title {
+			margin: 0;
+			max-width: 500px;
+
+			@include qodefScreenSize680 {
+				max-width: 100%;
+			}
+		}
+
+		.qodef-hl-cta-widget {
+			margin-top: 10px;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			width: 100%;
+			max-width: 500px;
+
+			@include qodefScreenSize680 {
+				max-width: 100%;
+			}
+
+			.wp-block-columns {
+
+				> * {
+					flex-basis: auto !important;
+				}
+
+				h2.widgettitle {
+					@include qodefHeadingStyle(h5);
+				}
+			}
+
+			> .widget {
+				width: 100%;
+				margin: 0;
+
+				&:first-child {
+					margin-bottom: auto;
+				}
+			}
+
+			@include qodefScreenSize680 {
+				//display: block;
+			}
+
+			.qodef-circle-bullet {
+				position: relative;
+				padding-left: 20px;
+
+				&:before {
+					content: '';
+					display: inline-block;
+					width: 8px;
+					height: 8px;
+					border: 1px solid currentColor;
+					border-radius: 100%;
+					position: absolute;
+					left: 0;
+					top: 9px;
+				}
+			}
+		}
+	}
+}
+
+.qodef-hl-item {
+
+	&.qodef-hl-item-active {
+
+		.qodef-hli-label-second {
+			opacity: 1 !important;
+		}
+
+	}
+}
+
+
+/* ==========================================================================
+   Horizontal Layout shortcode style - end
+   ========================================================================== */

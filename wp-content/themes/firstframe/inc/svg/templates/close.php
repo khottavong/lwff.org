@@ -1,0 +1,1 @@
+<svg class="<?php echo esc_attr( $class ); ?>" xmlns="http://www.w3.org/2000/svg" width="10.948" height="10.948"><g fill="none" stroke="#fff" data-name="Group 12889"><path d="m.354.355 10.24 10.239" data-name="Path 3898"/><path d="M.353 10.594 10.592.354" data-name="Path 3899"/></g></svg>

@@ -1,0 +1,113 @@
+.qodef-team-list {
+
+    &.qodef-item-layout--info-below {
+
+        &.qodef-enable-border--yes {
+            .qodef-e-inner {
+                border: 1px solid $border-color;
+
+                .qodef-e-content {
+                    margin: 30px 0 30px 38px;
+
+                    @include qodefScreenSize680 {
+                        margin: 30px 0 30px 27px;
+                    }
+                }
+            }
+        }
+
+        .qodef-e-image {
+            position: relative;
+
+            .qodef-e-social-wrapper {
+                position: absolute;
+                top: 4px;
+                right: 16px;
+                overflow: hidden;
+
+                .qodef-team-member-social-icons {
+                    width: 38px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                    flex-wrap: wrap;
+                    transform: translateX(-30%);
+                    opacity: 0;
+                    transition: transform .7s, opacity .45s;
+
+                    > a {
+                        height: 38px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-family: $text-font;
+                        color: #fff;
+                        font-size: 14px;
+                        text-transform: uppercase;
+                        font-weight: 500;
+                        position: relative;
+                        @include qodefInlineUnderline($bottom: 9px);
+
+
+                        &:hover {
+                            color: #fff;
+
+                            @include qodefInlineUnderlineHover();
+                        }
+                    }
+                }
+
+            }
+
+            &:hover {
+
+                .qodef-team-member-social-icons {
+                    transform: translateX(0%);
+                    opacity: 1;
+                }
+            }
+        }
+
+        .qodef-e-content {
+            margin: 14px 0 0;
+
+            .qodef-e-title {
+                margin: 22px 0 0px;
+            }
+        }
+
+        img {
+            filter: grayscale(0);
+            transition: filter .5s ease-out;
+        }
+
+        .qodef-e-media-image {
+            overflow: hidden;
+            position: relative;
+
+            &:after {
+                content: '';
+                display: block;
+                @include qodefOverlayGradient($color: rgba(0, 0, 0, .72));
+                background: linear-gradient(to left,var(--gradient-color) 0,rgba(0,0,0,0) 45%);
+            }
+        }
+
+        .qodef-e {
+            &:hover {
+                img {
+                    filter: grayscale(1);
+                }
+
+                .qodef-e-media-image {
+
+                    &:after {
+                        @include qodefOverlayGradientHover();
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Awards List shortcode styles
+   ========================================================================== */
+
+.qodef-interactive-info-box {
+	//overflow: hidden;
+
+	.qodef-grid-inner {
+		row-gap: 0;
+	}
+
+	article.qodef-grid-item {
+		border-top: 1px solid #707070;
+
+		.qodef-e-inner {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 37px 0;
+			position: relative;
+
+			@include qodefScreenSize768 {
+				flex-direction: column;
+				gap: 25px;
+			}
+		}
+	}
+
+	.qodef-e-text {
+		@include qodefInfoStyle();
+		font-family: $text-font;
+		font-size: 35px;
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		margin: 3px 25px 0 25px;
+		color: $heading-dark-color;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+
+		@include qodefScreenSize1024 {
+			margin: 3px 10px 0 25px;
+		}
+		@include qodefScreenSize768 {
+			margin: 0;
+		}
+
+		.qodef-e-text-second {
+			font-size: 25px;
+		}
+	}
+
+	.qodef-e-separator {
+		content: '';
+		background-color: $heading-dark-color;
+		width: 43px;
+		height: 1px;
+		transform: rotate(-60deg);
+		font-size: 55px;
+		position: relative;
+		margin-right: 6%;
+		display: inline-block;
+		margin-top: 10px;
+
+		@include qodefScreenSize768 {
+			display: none;
+		}
+	}
+
+	.qodef-e-title-wrapper {
+		margin: 0 auto 0 0;
+		max-width: 420px;
+		width: 100%;
+
+		@include qodefScreenSize768 {
+			margin: 0;
+			text-align: center;
+		}
+
+
+		.qodef-e-image {
+			position: absolute;
+			top: 50%;
+			right: 392px;
+			z-index: 200;
+			transform: translateY(-50%);
+
+			@include qodefScreenSize1440 {
+				right: 292px;
+				max-width: 230px;
+			}
+
+			@include qodefScreenSize1024 {
+				display: none;
+			}
+
+			//@include qodefScreenSize768 {
+			//	display: block;
+			//	right: -100px;
+			//}
+
+			img {
+				opacity: 0;
+				transform: scaleY(1.1) skewY(5deg);
+				transition: opacity .15s ease-out, transform .2s cubic-bezier(.22, .61, .36, 1);
+				z-index: 200;
+			}
+		}
+
+		.qodef-e-descirption {
+			font-family: $info-style-font;
+			position: relative;
+			display: block;
+			color: $heading-dark-color;
+		}
+
+		.qodef-e-title {
+			margin: 0;
+			position: relative;
+			z-index: 1;
+			display: inline-block;
+			color: $heading-dark-color;
+
+			a {
+				color: inherit;
+			}
+		}
+	}
+
+	.qodef-e {
+
+		&:hover {
+
+			.qodef-e-image {
+
+				img {
+					opacity: 1;
+					transform: scaleY(1) skewY(0deg);
+					transition: opacity .15s ease-out, transform .4s cubic-bezier(.22, .61, .36, 1);
+				}
+			}
+
+		}
+	}
+
+	.qodef-e-button {
+		margin: 0;
+		flex-shrink: 0;
+
+		.qodef-m-button-arrow-holder {
+			margin: 0 !important;
+		}
+	}
+
+	.qodef-e-button-left {
+		margin-right: 20px;
+
+		@include qodefScreenSize1024 {
+			margin-right: 10px;
+		}
+		@include qodefScreenSize768 {
+			margin-right: 0;
+		}
+	}
+
+	&.qodef-skin--light {
+
+		article {
+			border-color: $border-color !important;
+		}
+
+		.qodef-e-text {
+			&:after {
+				background-color: #fff;
+			}
+		}
+
+		.qodef-e-text,
+		.qodef-e-title,
+		.qodef-button {
+			color: #fff;
+		}
+
+		.qodef-button {
+			&.qodef-layout--outlined {
+				&:hover {
+					color: $heading-dark-color;
+				}
+			}
+		}
+
+		.qodef-e-descirption {
+			color: $text-color;
+		}
+
+		.qodef-e-separator {
+			background-color: #707070;
+		}
+	}
+}

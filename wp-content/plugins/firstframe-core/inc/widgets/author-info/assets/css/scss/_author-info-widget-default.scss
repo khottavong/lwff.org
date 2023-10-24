@@ -1,0 +1,35 @@
+.widget.qodef-author-info {
+	border: 1px solid $border-color;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+
+	.qodef-author-info-image {
+		margin-right: 17px;
+		display: inline-block;
+	}
+
+	.qodef-author-info-right {
+		display: flex;
+		flex-direction: column;
+
+		.qodef-author-info-name {
+			margin: 0;
+
+			a {
+				color: $heading-color;
+			}
+		}
+
+		.qodef-author-additional-information {
+			margin: 0;
+			font-family: $info-style-font;
+			font-size: 15px;
+			font-weight: 300;
+			color: $text-color;
+
+		}
+
+	}
+
+}

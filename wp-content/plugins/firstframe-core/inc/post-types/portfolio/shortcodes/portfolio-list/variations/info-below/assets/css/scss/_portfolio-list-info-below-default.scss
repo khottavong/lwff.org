@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Portfolio List shortcode variation styles
+   ========================================================================== */
+
+.qodef-portfolio-list {
+
+	&.qodef-item-layout--info-below {
+		article {
+
+			.qodef-e-media {
+				overflow: hidden;
+
+				&:after {
+					content: '';
+					@include qodefOverlayGradient();
+				}
+			}
+
+			&:hover {
+
+				.qodef-e-media {
+
+					&:after {
+						@include qodefOverlayGradientHover();
+					}
+				}
+			}
+		}
+	}
+}

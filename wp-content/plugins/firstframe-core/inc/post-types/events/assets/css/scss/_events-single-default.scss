@@ -1,0 +1,28 @@
+/* ==========================================================================
+   Events Single styles
+   ========================================================================== */
+
+.qodef-events {
+    @include qodefRelativeLayout();
+    
+    .qodef-event-item {
+        @include qodefRelativeLayout();
+    }
+    
+    .qodef-e-inner {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        margin: 0 -30px;
+        
+        > * {
+            position: relative;
+            width: 100%;
+            padding: 0 30px;
+        }
+        
+        .qodef-e-info {
+            max-width: 30%;
+        }
+    }
+}

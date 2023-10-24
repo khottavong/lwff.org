@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Interactive Link Showcase Slider styles
+   ========================================================================== */
+
+.qodef-image-with-text {
+
+	&.qodef-layout--text-on-hover {
+		.qodef-e-inner {
+			overflow: hidden;
+			cursor: none;
+			border: 1px solid $border-color;
+			position: relative;
+
+			.qodef-e-inner-overlay {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(1, 1, 1, 0.4);
+				z-index: 200;
+				opacity: 0;
+				transition: opacity 0.3s ease-in-out;
+			}
+
+			&:hover {
+				.qodef-e-inner-overlay {
+					opacity: 1;
+				}
+			}
+		}
+
+		.qodef-m-image {
+			height: 100%;
+			width: 100%;
+		}
+
+		.qodef-m-content {
+			margin: 0;
+			display: none;
+		}
+	}
+}
+
+.qodef-e-content-follow-text {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 9999;
+	pointer-events: none;
+	visibility: hidden;
+	width: 243px;
+	height: 243px;
+	background-color: rgba(220, 57, 24, 0.9);
+	border-radius: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+	cursor: none;
+	animation: pulse-dot 1.85s cubic-bezier(0.455, 0.03, 0.815, 0.955) -2.9s infinite;
+
+	&.qodef-right {
+		text-align: right;
+		transform: translateX(-100%);
+	}
+
+	.qodef-e-top-holder {
+		.qodef-e-info {
+			.qodef-m-number {
+				font-family: $text-font;
+				font-size: 49px;
+				font-weight: 700;
+				text-stroke: 1px #fff;
+				-webkit-text-stroke: 1px #fff;
+				color: transparent;
+				margin: 0;
+				line-height: 55px;
+			}
+		}
+	}
+
+	.qodef-m-title {
+		margin: 0;
+		color: #fff;
+		font-family: $text-font;
+		font-size: 25px;
+		font-weight: 700;
+		text-transform: none;
+
+		a {
+			color: inherit;
+		}
+	}
+
+	.qodef-m-content,
+	.qodef-m-title {
+
+		> * {
+			display: inline-block;
+		}
+	}
+
+	&.qodef-is-active {
+		visibility: visible;
+	}
+}
+
+@keyframes pulse-dot {
+	0% {
+		transform: scale(.95);
+	}
+	50% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(.95);
+	}
+}

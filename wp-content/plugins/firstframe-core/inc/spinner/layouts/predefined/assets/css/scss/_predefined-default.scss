@@ -1,0 +1,131 @@
+/* ==========================================================================
+   Spinner layout styles
+   ========================================================================== */
+
+#qodef-page-spinner {
+
+    &.qodef-layout--predefined {
+        transform-origin: bottom;
+
+        &.qode-has-spinner-placeholder {
+            pointer-events: none;
+
+            .qodef-m-spinner-stamp {
+                pointer-events: all;
+                transform-origin: 50%;
+
+                .qodef-m-spinner-stamp-inner {
+                    @include qodefAbsoluteLayout();
+                }
+            }
+
+            &.qodef--finished {
+                opacity: 1;
+                visibility: visible;
+                position: absolute;
+
+                .qodef-m-spinner-stamp {
+                    pointer-events: all;
+                }
+
+                .qodef-m-inner {
+                    transition: background-color 1s;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .qodef-m-spinner-image-holder {
+            display: block;
+        }
+        .qodef-m-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .qodef-m-spinner-stamp {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 248px;
+            height: 248px;
+            opacity: 0;
+            animation: qode-fade-in 1s forwards;
+
+            ::selection {
+                background-color: transparent;
+            }
+
+            svg {
+                display: block;
+                transform-origin: center;
+                width: 100%;
+                height: 100%;
+                overflow: visible;
+            }
+
+            .qodef-m-stamp-secondary-color {
+                fill: var(--qode-spinner-second-color,#f8f7f2);
+            }
+
+            .qodef-m-stamp-static {
+                @include qodefAbsoluteLayout();
+                font-size: 308px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: currentColor;
+
+                transform-origin: center;
+                animation: qode-step-rotate 7s infinite;
+
+                .qodef-svg--asterix {
+                    fill: currentColor;
+                }
+
+                span {
+                    position: absolute;
+                    top: 17%;
+                }
+            }
+
+            .qodef-circle-text {
+                text-transform: uppercase;
+                fill: var(--qode-text-color, #FFF);
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                word-spacing: 4px;
+
+                will-change: transform;
+                transform-origin: center;
+                animation: qode-rotate 10s linear infinite reverse;
+            }
+        }
+
+        .qodef-m-spinner-stamp-inner {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        &.qodef--finished {
+            transition: opacity 1s, visibility 1s;
+            opacity: 0;
+            visibility: hidden;
+
+            pointer-events: none;
+        }
+    }
+}
+
+#qode-preloader-placeholder {
+    opacity: 0;
+}
+
+

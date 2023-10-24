@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Icon With Text shortcode styles
+   ========================================================================== */
+
+.qodef-icon-with-text {
+
+    &.qodef-layout--before-title {
+
+        .qodef-m-title-inner {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .qodef-m-icon-wrapper {
+            flex-shrink: 0;
+            margin-right: 21px;
+        }
+
+        .qodef-m-number {
+            font-family: $text-font;
+            font-size: 73px;
+            font-weight: 700;
+            text-stroke: 1px #fff;
+            -webkit-text-stroke: 1px #fff;
+            color: transparent;
+            margin: 0;
+            line-height: 64px;
+
+        }
+
+        .qodef-m-text {
+            margin-top: 7px;
+        }
+
+        &.qodef--retina {
+
+            img {
+                max-width: 50%;
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Image With Text shortcode styles
+   ========================================================================== */
+
+.qodef-image-with-text {
+	@include qodefRelativeLayout();
+
+	.qodef-m-image {
+		@include qodefRelativeLayout();
+
+		a, img {
+			display: block;
+		}
+	}
+
+	.qodef-m-content {
+		@include qodefRelativeLayout();
+	}
+
+	.qodef-m-title {
+		margin: 31px 0 0;
+	}
+
+	.qodef-m-text {
+		margin: 15px 0 0;
+	}
+
+	&.qodef--has-appear {
+		opacity: 0;
+		transform: translateY(30px) translateZ(0) skewY(3deg) scaleY(1.1);
+		transform-origin: top left;
+		transition: transform .8s cubic-bezier(.16,.09,0,1.02) 0s,opacity .35s 0s;
+
+		&.qodef--appeared {
+			opacity: 1;
+			transform: translateY(0) skewY(0) scaleZ(1);
+		}
+	}
+}

@@ -1,0 +1,1 @@
+<svg class="<?php echo esc_attr( $class ); ?>" xmlns="http://www.w3.org/2000/svg" width="14.255" height="14.255"><g fill="none" stroke="#fff" stroke-miterlimit="10"><path d="M5.838.5a5.338 5.338 0 1 0 5.338 5.338A5.338 5.338 0 0 0 5.838.5Z" data-name="Path 512"/><path stroke-linecap="round" d="m9.82 9.82 3.728 3.728" data-name="Path 513"/></g></svg>

@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Text Marquee shortcode styles
+   ========================================================================== */
+
+@include keyframes(qode-text-marquee-left) {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@include keyframes(qode-text-marquee-right) {
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.qodef-text-marquee {
+	$marquee-timing: var(--qode-marquee-duration, 25s) linear infinite;
+
+	.qodef-m-content {
+		display: flex;
+		font-family: $text-font;
+		font-size: 130px;
+		font-weight: 700;
+		line-height: 1;
+		text-transform: uppercase;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	&.qodef-outline {
+
+		.qodef-m-content {
+			@include qodefOutlineStyle();
+		}
+	}
+
+	&.qodef-skin--light {
+		.qodef-m-text-1,
+		.qodef-m-text-2,
+		.qodef-m-text-3 {
+			color: #fff;
+		}
+	}
+
+	.qodef-m-content-inner {
+		@at-root .qodef--init.qodef-direction--left#{&} {
+			animation: qode-text-marquee-left $marquee-timing;
+		}
+
+		@at-root .qodef--init.qodef-direction--right#{&} {
+			animation: qode-text-marquee-right $marquee-timing;
+		}
+
+		padding-right: 25px;
+	}
+
+	.qodef-m-text-1 {
+		color: $heading-dark-color;
+	}
+
+	.qodef-m-text-2 {
+		color: $heading-dark-color;
+	}
+
+	.qodef-m-text-3 {
+		color: $heading-dark-color;
+	}
+
+	.qodef-m-separator {
+		color: var(--qode-main-color);
+		position: relative;
+		margin: 0 31px;
+	}
+}

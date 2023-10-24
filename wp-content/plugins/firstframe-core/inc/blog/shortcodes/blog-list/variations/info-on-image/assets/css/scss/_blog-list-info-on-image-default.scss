@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Blog List Metro styles
+   ========================================================================== */
+
+.qodef-blog {
+
+	&.qodef-item-layout--info-on-image {
+		margin: 0;
+
+		article {
+
+			.qodef-e-media {
+				height: 100%;
+				width: 100%;
+			}
+
+			.qodef-e-media-image {
+				width: 100%;
+
+				img {
+					object-fit: cover;
+					min-height: 385px;
+				}
+			}
+
+			.entry-date {
+				color: $heading-color;
+				left: 30px;
+				top: 35px;
+
+				@include qodefScreenSize680 {
+					display: none;
+				}
+
+				.qodef-time-day {
+					font-size: 60px;
+
+					@include qodefScreenSize1024 {
+						font-size: 45px;
+					}
+
+					&:after {
+						right: 0;
+
+						@include qodefScreenSize1024 {
+							right: -10px;
+						}
+					}
+				}
+
+				.qodef-time-month {
+					font-size: 45px;
+
+					@include qodefScreenSize1024 {
+						font-size: 30px;
+					}
+				}
+			}
+
+			.qodef-e-content {
+				margin: 0;
+				@include qodefAbsoluteLayout();
+				display: flex;
+				justify-content: flex-end;
+				flex-direction: column;
+				padding: 35px 40px;
+
+				@include qodefScreenSize680 {
+					padding: 15px 20px;
+				}
+
+				.qodef-e-content-inner {
+					position: absolute;
+					right: 6%;
+					bottom: 12%;
+					max-width: 511px;
+
+					.qodef-e-top-holder {
+						margin-bottom: 8px;
+					}
+
+					@include qodefScreenSize1024 {
+						right: 0;
+						bottom: 6%;
+					}
+
+					@include qodefScreenSize680 {
+						bottom: 0;
+						padding: 19px 27px;
+					}
+
+					.qodef-e-excerpt {
+						margin: 13px 0 0;
+
+						@include qodefScreenSize680 {
+							display: none;
+						}
+					}
+				}
+
+				a {
+					position: relative;
+					z-index: 3;
+				}
+			}
+
+			.qodef-e-title {
+				color: $heading-color;
+
+				a {
+					color: $heading-color;
+				}
+			}
+
+			.qodef-e-excerpt {
+				position: relative;
+				color: $heading-color;
+
+				&:before {
+					content: '';
+					display: inline-block;
+					width: 8px;
+					height: 8px;
+					border: 1px solid currentColor;
+					border-radius: 100%;
+					margin-right: 8px;
+				}
+			}
+
+			.qodef-e-info {
+
+				> * {
+					color: $heading-color;
+				}
+			}
+
+			.qodef-e-post-link {
+				z-index: 2;
+			}
+		}
+	}
+}

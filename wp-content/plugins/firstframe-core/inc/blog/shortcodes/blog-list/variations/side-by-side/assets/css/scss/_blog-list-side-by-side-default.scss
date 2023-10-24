@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Blog List Side By Side styles
+   ========================================================================== */
+
+.qodef-blog {
+
+	&.qodef-item-layout--side-by-side {
+
+		article {
+			margin-top: -1px;
+
+			.qodef-e-inner {
+				display: flex;
+				border: 1px solid $border-color;
+				border-right: 0;
+				border-left: 0;
+
+				@include qodefScreenSize1024 {
+					flex-direction: column;
+					border-right: 1px solid $border-color;
+					border-left: 1px solid $border-color;
+				}
+			}
+
+			.qodef-e-text {
+				max-width: 390px;
+				width: 100%;
+
+				@include qodefScreenSize680 {
+					max-width: 100%;
+				}
+			}
+
+
+			.qodef-e-media {
+				flex-shrink: 0;
+				flex-basis: 66.5%;
+				padding: 20px 20px 20px 0;
+				border-right: 1px solid $border-color;
+
+				.entry-date {
+					display: none !important;
+				}
+
+				.qodef-e-media-image {
+					width: 100%;
+				}
+
+				@include qodefScreenSize1440 {
+					flex-shrink: 0;
+					flex-basis: 58%;
+					padding: 15px;
+				}
+				@include qodefScreenSize1024 {
+					border-right: none;
+					padding: 15px;
+					border-bottom: 1px solid $border-color;
+				}
+
+			}
+
+			.qodef-e-content {
+				padding: 51px 64px 57px;
+				margin: 0;
+				height: auto;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				flex-basis: 33.5%;
+
+				@include qodefScreenSize1440 {
+					padding: 51px 50px 60px;
+					flex-basis: 42%;
+				}
+
+				@include qodefScreenSize1024 {
+					padding: 51px 50px 60px;
+				}
+				@include qodefScreenSize768 {
+					padding: 28px 35px 35px;
+				}
+				@include qodefScreenSize680 {
+					padding: 28px 7% 33px;;
+				}
+			}
+
+			.qodef-e-media-image {
+				overflow: hidden;
+
+				&:after {
+					content: '';
+					@include qodefOverlayGradient();
+				}
+			}
+
+			&:hover {
+
+				.qodef-e-media-image {
+
+					&:after {
+						@include qodefOverlayGradientHover();
+					}
+				}
+			}
+		}
+
+		.qodef-e-top-holder {
+			.qodef-e-info {
+				margin-bottom: 7px;
+
+			}
+		}
+
+		.qodef-e-bottom-holder {
+			margin-top: 5px;
+
+			.qodef-e-excerpt {
+				position: relative;
+				width: 90%;
+
+				&:before {
+					content: '';
+					display: inline-block;
+					width: 8px;
+					height: 8px;
+					border: 1px solid currentColor;
+					border-radius: 100%;
+					margin-right: 8px;
+				}
+
+				@include qodefScreenSize1024 {
+					width: 63%;
+					margin: 8px 0 0;
+				}
+				@include qodefScreenSize680 {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+
+}

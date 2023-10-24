@@ -1,0 +1,5 @@
+<?php if ( class_exists( 'FirstFrameCore_Button_Shortcode' ) && ( $hide_button === 'no' ) ) { ?>
+	<div class="qodef-m-button">
+		<?php echo FirstFrameCore_Button_Shortcode::call_shortcode( $button_params ); ?>
+	</div>
+<?php } ?>

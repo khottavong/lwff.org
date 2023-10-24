@@ -1,0 +1,16 @@
+.qodef-background-text {
+	position: relative;
+
+	.qodef-m-background-text-holder {
+		display: flex;
+		height: 100%;
+		position: absolute;
+		width: 100%;
+	}
+
+	.qodef-m-background-text {
+		color: var(--qode-main-color);
+		font-size: 200px;
+		line-height: 1em;
+	}
+}

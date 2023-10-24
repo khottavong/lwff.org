@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Workflow shortcode style - begin
+   ========================================================================== */
+
+.qodef-workflow {
+	@include qodefRelativeLayout();
+	padding: 170px 0 142px;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	z-index: 1;
+	transition: transform .15s;
+	transform: translateX(0);
+	will-change: transform;
+	cursor: grab;
+
+
+	.qodef-m-line {
+		position: relative;
+		width: 140%;
+		height: 1px;
+		background-color: $border-color;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 2s linear;
+	}
+
+	.qodef-m-inner {
+		transition: all .6s ease-in-out;
+	}
+
+	.qodef-e-item {
+		position: relative;
+		float: left;
+		transform: translateY(calc(-50% - 2px)); //2px due to line height/2
+
+		.qodef-browser--ms-explorer & {
+			transform: translateY(-50%) translateY(-2px);
+		}
+
+		.qodef-e-circle-holder {
+			position: relative;
+			top: 1px;
+			font-size: 0;
+			opacity: 0;
+			visibility: hidden;
+
+			&.qodef--appeared {
+				animation: qodef-show-circles .64s forwards ease;
+
+				@keyframes qodef-show-circles {
+					0% {
+						opacity: 0;
+						visibility: hidden;
+					}
+
+					100% {
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+			}
+		}
+
+		.qodef-e-circle {
+			width: 87px;
+			height: 87px;
+			border-radius: 100%;
+			background-color: $heading-dark-color;
+			border: 1px solid transparent;
+			overflow: hidden;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.qodef-e-circle-inner {
+			display: inline-block;
+			vertical-align: middle;
+			width: 20px;
+			height: 20px;
+			border-radius: 100%;
+			background-color: $heading-dark-color;
+			line-height: 0;
+			border: 1px solid $border-color;
+		}
+
+		.qodef-e-content {
+			position: absolute;
+			left: 0;
+			width: 100%;
+			text-align: left;
+			max-width: 60%;
+			padding: 67px 0 38px 26px;
+			z-index: 10;
+
+			.qodef-e-date-range,
+			.qodef-e-text {
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(16px);
+				color: $border-color;
+			}
+
+			.qodef-e-date-range {
+				font-family: $text-font;
+				font-size: 19px;
+				font-weight: 700;
+			}
+
+			.qodef-e-date-range {
+				margin: 0;
+			}
+
+			.qodef-e-text {
+				margin: 7px 0 0;
+			}
+
+			&.qodef--appeared {
+
+				.qodef-e-date-range,
+				.qodef-e-text {
+					animation: qodef-show-content .64s forwards ease;
+				}
+
+				@keyframes qodef-show-content {
+					0% {
+						opacity: 0;
+						visibility: hidden;
+						transform: translateY(16px);
+					}
+
+					100% {
+						opacity: 1;
+						visibility: visible;
+						transform: translateY(0);
+					}
+				}
+			}
+		}
+
+		&.qodef-order--odd {
+
+			.qodef-e-content {
+				bottom: 12px;
+			}
+		}
+
+		&.qodef-order--even {
+
+			.qodef-e-content {
+				top: 16px;
+			}
+		}
+
+		&:not(.qodef--active) {
+			.qodef-e-circle-inner {
+				background-color: var(--qode-main-color);
+				border: 1px solid var(--qode-main-color);
+			}
+
+			.qodef-e-date-range,
+			.qodef-e-text {
+				color: #fff;
+			}
+		}
+	}
+
+	&.qodef--init {
+
+		.qodef-m-line {
+			transform: scaleX(1);
+		}
+	}
+
+
+}
+
+/* ==========================================================================
+   Workflow shortcode style - end
+   ========================================================================== */

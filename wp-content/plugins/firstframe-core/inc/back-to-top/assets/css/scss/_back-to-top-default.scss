@@ -1,0 +1,109 @@
+/* ==========================================================================
+   #Back to Top styles - start
+   ========================================================================== */
+
+#qodef-back-to-top {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	right: 25px;
+	bottom: 25px;
+	margin: 0;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 100;
+	mix-blend-mode: difference;
+
+	.qodef-back-to-top-icon {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		font-size: 20px;
+		color: #fff;
+		background-color: transparent;
+		border: 0 solid transparent;
+		overflow: hidden;
+		transition: $color-transition, $background-color-transition, $border-color-transition;
+
+		* {
+			display: block;
+			line-height: inherit;
+		}
+
+		.qodef-circle-svg {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 5;
+			font-size: 9px;
+			letter-spacing: 1px;
+			font-weight: 500;
+			color: $heading-color;
+			fill: $heading-color;
+
+			.qodef-circle-text {
+				@include qodefScreenSize680(){
+					display: none;
+				}
+			}
+
+			@include qodefRotatedText();
+
+
+			.qodef-arrow {
+				@include qodefButtonArrow($move-x: 0%, $move-y: 30px);
+				clip-path: inset(-10px 0 30px 0);
+				transition: .5s;
+			}
+
+			&:hover {
+				@include qodefRotatedTextHover();
+
+				.qodef-arrow {
+					clip-path: inset(20px 0 0 0);
+					@include qodefButtonArrowHover();
+				}
+			}
+		}
+	}
+
+	.qodef-arrow-horizontal,
+	.qodef-arrow-vertical {
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 2px;
+	}
+
+	svg {
+		display: block;
+		width: 100px;
+		height: auto;
+		fill: currentColor;
+	}
+
+	&:hover {
+
+		.qodef-back-to-top-icon {
+			color: var(--qode-main-color);
+			background-color: transparent;
+		}
+	}
+
+	&.qodef--off {
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.15s ease, visibility .0s .15s;
+	}
+
+	&.qodef--on {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.3s ease;
+	}
+}
+
+/* ==========================================================================
+   #Back to Top styles - end
+   ========================================================================== */

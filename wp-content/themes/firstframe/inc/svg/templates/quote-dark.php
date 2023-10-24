@@ -1,0 +1,1 @@
+<svg class="<?php echo esc_attr( $class ); ?>" xmlns="http://www.w3.org/2000/svg" width="62" height="244" viewBox="0 0 62 244"><text data-name="''" transform="translate(0 193)" fill="#dc3918" font-size="203" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">&apos;&apos;</tspan></text></svg>

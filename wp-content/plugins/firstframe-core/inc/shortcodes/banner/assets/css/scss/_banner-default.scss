@@ -1,0 +1,84 @@
+/* ==========================================================================
+   Banner shortcode styles
+   ========================================================================== */
+
+.qodef-banner {
+	@include qodefRelativeLayout();
+
+	.qodef-m-banner-link {
+		@include qodefAbsoluteLayout();
+		display: block;
+		z-index: 1;
+	}
+
+	.qodef-m-content {
+		@include qodefAbsoluteLayout();
+		display: block;
+	}
+
+	.qodef-m-content-inner {
+		@include qodefAbsoluteLayout();
+		display: flex;
+	}
+
+	.qodef-m-title {
+		margin: 10px 0 4px;
+	}
+
+	.qodef-m-title-inner {
+		display: inline-block;
+	}
+
+	.qodef-m-subtitle {
+		margin: 0;
+		opacity: .5;
+		letter-spacing: 0;
+	}
+
+	.qodef-m-text-field {
+		font-size: 15px;
+		color: var(--qode-main-color);
+		margin: 0 0 10px;
+		font-style: italic;
+	}
+
+	.qodef-m-image {
+		@include qodefRelativeLayout();
+		overflow: hidden;
+
+		img {
+			display: block;
+		}
+
+		.qodef-e-main-image {
+			width: auto;
+			opacity: 1;
+			will-change: opacity;
+			display: inline-block;
+		}
+
+		.qodef-e-hover-image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: auto;
+			opacity: 0;
+		}
+
+		.qodef-e-main-image,
+		.qodef-e-hover-image {
+			transition: opacity .15s ease-in-out;
+		}
+	}
+
+	&:hover {
+
+		.qodef-e-main-image {
+			opacity: 0;
+		}
+
+		.qodef-e-hover-image {
+			opacity: 1;
+		}
+	}
+}

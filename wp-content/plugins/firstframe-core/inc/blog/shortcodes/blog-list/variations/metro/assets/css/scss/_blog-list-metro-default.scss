@@ -1,0 +1,170 @@
+/* ==========================================================================
+   Blog List styles
+   ========================================================================== */
+
+.qodef-blog {
+
+	&.qodef-item-layout--metro {
+
+		article {
+			&.has-post-thumbnail {
+
+				.qodef-e-inner {
+
+					.qodef-e-media {
+						display: block;
+					}
+
+					.qodef-e-content {
+						padding: 22px 34px 32px !important;
+
+						@media (min-width: 1280px) and (max-width: 1440px) {
+							padding: 22px 20px 32px !important;
+						}
+						@include qodefScreenSize680 {
+							padding: 22px 7% 32px !important;
+						}
+					}
+				}
+
+				.qodef-e-media-image{
+					overflow: hidden;
+					width: 100%;
+
+					img {
+						@include qodefImgZoom();
+					}
+				}
+
+				&:hover {
+					.qodef-e-media-image {
+						img {
+							@include qodefImgZoomHover($zoom: 1.04);
+						}
+					}
+				}
+			}
+
+			.qodef-e-inner {
+				border: 1px solid $border-color;
+
+				.qodef-e-media {
+					display: none;
+				}
+
+				.entry-date {
+					.qodef-time-month {
+						font-size: 18px;
+					}
+
+					.qodef-time-day {
+						font-size: 23px;
+
+						&:after {
+							right: 4px;
+						}
+
+
+					}
+				}
+
+				.qodef-e-top-holder {
+					margin-bottom: 8px;
+
+					@include qodefScreenSize1440 {
+						margin-bottom: 4px;
+					}
+				}
+
+				.qodef-e-bottom-holder {
+					margin-top: 23px;
+				}
+
+				.qodef-e-content {
+					background-color: $background-color;
+					margin: 0;
+					padding: 86px 34px;
+
+					@media (min-width: 1280px) and (max-width: 1440px) {
+						padding: 48px 20px 50px !important;
+					}
+
+					@include qodefScreenSize680 {
+						padding: 22px 7% 32px;
+					}
+				}
+			}
+
+			&.format-quote {
+				.qodef-e-quote {
+					padding: 16% 34px 22%;
+					border: 0;
+
+					.entry-date {
+						display: block;
+						position: relative;
+						left: 0;
+						top: 20px;
+						margin-bottom: 27px;
+						font-family: $info-style-font;
+						font-size: 15px;
+						font-weight: 300;
+						color: $text-color;
+					}
+
+					.qodef-e-quote-icon {
+						left: auto;
+						right: 37px;
+						top: 53px;
+
+						@media (min-width: 1280px) and (max-width: 1440px) {
+							right: 24px;
+							top: 41px;
+						}
+					}
+
+					@media (min-width: 1280px) and (max-width: 1440px) {
+						padding: 8% 34px 15%;
+					}
+					@include qodefScreenSize680 {
+						padding: 16% 7% 22%;
+					}
+				}
+			}
+
+			&.format-link {
+				.qodef-e-link {
+					padding: 28% 34px 28%;
+					border: 0;
+
+					@media (min-width: 1280px) and (max-width: 1440px) {
+						padding: 15% 34px 15%;
+					}
+					@include qodefScreenSize680 {
+						padding: 31% 7% 31%;
+					}
+				}
+
+				.qodef-e-link-icon {
+					left: auto;
+					right: 37px;
+					top: 35px;
+					transform: none;
+
+					@media (min-width: 1280px) and (max-width: 1440px) {
+						right: 24px;
+						top: 24px;
+					}
+					@include qodefScreenSize680 {
+						left: auto;
+						right: 37px;
+						top: 15px;
+						width: 60px;
+						position: absolute;
+					}
+				}
+			}
+		}
+
+	}
+}

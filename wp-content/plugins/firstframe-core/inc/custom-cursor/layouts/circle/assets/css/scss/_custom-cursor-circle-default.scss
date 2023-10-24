@@ -1,0 +1,242 @@
+/* ==========================================================================
+   #Custom cursor styles - begin
+   ========================================================================== */
+
+.qodef-custom-cursor-enabled {
+	.firstframe-arrows.tparrows.rs-touchhover .qodef-arrow-follow {
+		opacity: 0;
+	}
+
+	&.qodef-custom-cursor-circle {
+
+		.no-touchevents:not(.elementor-html) & {
+			cursor: none!important;
+
+			a,
+			button.mfp-arrow,
+			button.mfp-close {
+				cursor: none;
+			}
+
+			#qodef-custom-cursor-holder {
+				opacity: 0;
+				--qodef-small-size: 15px;
+				--qodef-medium-size: 20px;
+				--qodef-big-size:  95px;
+				--qodef-large-size: 210px;
+				pointer-events: none;
+				position: relative;
+				z-index: 999999;
+
+				&.qodef-custom-cursor-blend-mode {
+					mix-blend-mode: difference;
+				}
+
+				&.qodef-custom-cursor-visible {
+					opacity: 1;
+				}
+
+
+				.qodef-custom-cursor-transform {
+					position: fixed;
+					top: 0;
+					left: 0;
+					height: var(--qodef-large-size);
+					width: var(--qodef-large-size);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					will-change: transform;
+					overflow: hidden;
+					border-radius: 50%;
+				}
+
+				.qodef-custom-cursor-circle {
+					height: var(--qodef-small-size);
+					width: var(--qodef-small-size);
+					position: absolute;
+					border-radius: 50%;
+					background: var(--qode-cursor-color, var(--qode-main-color));
+					transition: width .3s ease, height .3s ease;
+				}
+
+				.qodef-custom-cursor-arrow,
+				.qodef-custom-cursor-drag,
+				.qodef-custom-cursor-custom-text{
+					min-height: var(--qodef-big-size);
+					min-width: var(--qodef-big-size);
+					position: absolute;
+					opacity: 0;
+					display: flex;
+					color: #fff;
+					font-size: 17px;
+					line-height: 1em;
+					font-weight: 700;
+					transition: opacity 0s ease-out;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					svg {
+						opacity: 0;
+						transition: opacity 0s ease-out;
+					}
+				}
+
+				.qodef-custom-cursor-arrow {
+					.qodef-custom-cursor-arrow-text-holder {
+						position: relative;
+						//clip-path: inset(-.1em 0);
+					}
+
+					.qodef--prev {
+						position: absolute;
+						left: 0;
+						opacity: 0;
+						transform: translateY(100%);
+					}
+
+					.qodef--next {
+						opacity: 1;
+						transform: translateY(0%);
+					}
+
+					.qodef--prev,
+					.qodef--next {
+						display: inline-flex;
+						transition: opacity .25s ease, transform .5s ease;
+					}
+
+				}
+
+				.qodef-custom-cursor-custom-text {
+					flex-direction: column;
+
+					.qodef-m-number {
+						font-size: 49px;
+						font-weight: 700;
+						-webkit-text-stroke: 1px currentColor;
+						-webkit-text-fill-color: transparent;
+						margin-bottom: 6px;
+						line-height: 55px;
+					}
+
+					.qodef-m-text {
+						font-size: 25px;
+						font-weight: 700;
+						text-transform: none;
+						text-align: center;
+						@include qodefHeadingStyle(h6);
+						padding: 0 15px;
+					}
+				}
+
+				&.qodef-custom-cursor-hovering-link {
+
+					.qodef-custom-cursor-circle {
+						height: var(--qodef-medium-size);
+						width: var(--qodef-medium-size);
+					}
+				}
+
+				&.qodef-custom-cursor-hovering-arrow {
+					mix-blend-mode: unset;
+
+					.qodef-custom-cursor-circle {
+						height: var(--qodef-big-size);
+						width: var(--qodef-big-size);
+						opacity: .9;
+					}
+
+					.qodef-custom-cursor-arrow {
+						transition: opacity .25s ease-out;
+						opacity: 1;
+					}
+
+					&.qodef--prev {
+
+						.qodef-custom-cursor-arrow {
+							.qodef--next {
+								opacity: 0;
+								transform: translateY(-100%);
+							}
+
+							.qodef--prev {
+								opacity: 1;
+								transform: translateY(0%);
+							}
+						}
+					}
+				}
+
+				&.qodef-custom-cursor-hovering-drag {
+					mix-blend-mode: unset;
+
+					.qodef-custom-cursor-circle {
+						height: var(--qodef-big-size);
+						width: var(--qodef-big-size);
+						opacity: .9;
+					}
+
+					.qodef-custom-cursor-drag {
+						transition: opacity .25s ease-out;
+						opacity: 1;
+					}
+				}
+
+				&.qodef-custom-cursor-hovering-custom-text {
+					mix-blend-mode: unset;
+
+					.qodef-custom-cursor-circle {
+						height: var(--qodef-large-size);
+						width: var(--qodef-large-size);
+						opacity: .9;
+					}
+
+					.qodef-custom-cursor-custom-text {
+						transition: opacity .25s ease-out;
+						opacity: 1;
+
+						.qodef-m-number {
+							animation: qode-text-show .5s .15s both;
+						}
+
+						.qodef-m-text {
+							animation: qode-text-show .5s .3s both;
+						}
+					}
+				}
+
+				&.qodef-custom-cursor-hide {
+					.qodef-custom-cursor-circle {
+						height: 0;
+						width: 0;
+					}
+				}
+			}
+		}
+
+		.touchevents &,
+		.elementor-html & {
+
+			#qodef-custom-cursor-holder {
+				display: none;
+			}
+		}
+	}
+
+	.qodef-custom-cursor-video,
+	.qodef-custom-cursor-arrow {
+		.no-touchevents:not(.elementor-html) & {
+			cursor: none;
+
+			a {
+				cursor: none;
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   #Custom cursor styles - end
+   ========================================================================== */

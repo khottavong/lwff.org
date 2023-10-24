@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Events list shortcode variation styles
+   ========================================================================== */
+
+.qodef-events-list {
+	
+	&.qodef-item-layout--info-table {
+	
+		.qodef-e-inner {
+			position: relative;
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+		}
+		
+		.qodef-e-date {
+			flex-shrink: 0;
+			margin-right: 32px;
+		}
+		
+		.qodef-e-tickets-link {
+			flex-shrink: 0;
+			margin-left: auto;
+		}
+	}
+}
