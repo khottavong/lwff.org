@@ -7,7 +7,7 @@ if ( is_single() || is_page() || is_archive() ) { // This check is to prevent cl
 	$classes = 'published updated';
 }
 ?>
-<a itemprop="dateCreated" href="<?php echo esc_url( $date_link ); ?>" class="entry-date <?php echo esc_attr( $classes ); ?>">
+<a itemprop="dateCreated" href="<?php echo esc_url( $date_link ); ?>" class="testing-2 entry-date <?php echo esc_attr( $classes ); ?>">
 	<span class="qodef-time-day"><?php the_time($day); ?></span>
 	<span class="qodef-time-month"><?php the_time($month); ?></span>
 </a>
